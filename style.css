@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100%;
+    font-size: 2rem;
+    background-color: #c5f3ff;
+}
+
+div{
+    border: 3px solid #212121;
+}
+
+#container{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    width: 420px;
+    height: 420px;
+    border: none;
+    margin: 12rem auto;
+    background-color: #569bff;
+}
+
+.case{
+    width: 140px;
+}
+
+.case:nth-child(2), .case:nth-child(5), .case:nth-child(8){
+    border-left: none;
+    border-right: none;
+}
+
+.case:nth-child(4), .case:nth-child(5), .case:nth-child(6){
+    border-top: none;
+    border-bottom: none;
+}
+
+#player1{
+    position: relative;
+    bottom: 11.5rem;
+    left: 58rem;
+}
+
+#player2{
+    position: relative;
+    bottom: 11.5rem;
+    left: 78rem;
+}
