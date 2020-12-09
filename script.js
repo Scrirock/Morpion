@@ -36,8 +36,20 @@ function win(){
     rond = [];
     interdit = [];
     flag = 0;
-    player1();
+    player2();
     alert("Le joueur "+winner+" a gagné");
+}
+
+function draw(){
+    for (let reset = 0; reset<9; reset++){
+        divCase[reset].style.backgroundImage = "none";
+    }
+    croix = [];
+    rond = [];
+    interdit = [];
+    flag = 0;
+    player1();
+    alert("Personne n'a gagné");
 }
 
 let croix = [];
@@ -48,10 +60,14 @@ let winner = "";
 let tour = "O"
 let divCase = document.getElementsByClassName("case");
 for (let i = 0; i<9; i++) {
+    divCase[i].style.backgroundImage = "none";
     divCase[i].addEventListener("mouseup", function (event) {
         switch (event.button) {
             case 0:
                 flag = 0;
+                if (interdit.length === 8){
+                    draw()
+                }
                 for (let y of interdit) {
                     if (i === y) {
                         flag = 1;
@@ -125,6 +141,9 @@ for (let i = 0; i<9; i++) {
                 break;
             case 2:
                 flag = 0;
+                if (interdit.length === 8){
+                    draw()
+                }
                 for (let y of interdit) {
                     if (i === y) {
                         flag = 1;

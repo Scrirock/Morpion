@@ -25,7 +25,9 @@ div{
     width: 420px;
     height: 420px;
     border: none;
-    margin: 12rem auto;
+    margin-top: 12rem;
+    margin-left:auto;
+    margin-right: auto;
     background-color: #569bff;
 }
 
@@ -44,13 +46,16 @@ div{
 }
 
 #player1{
-    position: relative;
-    bottom: 11.5rem;
-    left: 58rem;
+    margin-right: 10%;
 }
 
-#player2{
-    position: relative;
-    bottom: 11.5rem;
-    left: 78rem;
+#text{
+    text-align: center;
+    border: none;
+}
+
+@media screen and (max-width: 421px){
+    #container{
+        margin: 0;
+    }
 }
