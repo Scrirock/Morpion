@@ -26,6 +26,95 @@ function player2() {
     document.getElementById("player1").style.fontSize = "initial";
     document.getElementById("player1").style.textDecorationLine = "initial";
     tour = "X";
+
+    if (botB === 1){
+        player1();
+    }
+}
+
+function bot(){
+    let i = Math.trunc(Math.random()*9)
+
+    for (let y of interdit) {
+        if (i === y) {
+            i = -1;
+            flag = 1;
+            bot();
+        }
+        else {
+            flag = 0;
+        }
+    }
+    if (flag !== 1){
+        divCase[i].style.backgroundImage = "url('croix.png')";
+        croix.push(i);
+        interdit.push(i);
+        flag = 0;
+        player1();
+    }
+
+    if (interdit.length > 8){
+        draw()
+    }
+
+    if (croix.includes(0)){
+        if (croix.includes(1)){
+            if (croix.includes(2)){
+                winner = " Bot ";
+                win();
+            }
+        }
+        else if (croix.includes(3)){
+            if (croix.includes(6)){
+                winner = " Bot ";
+                win();
+            }
+        }
+        else if (croix.includes(4)){
+            if (croix.includes(8)){
+                winner = " Bot ";
+                win();
+            }
+        }
+    }
+    if (croix.includes(3)){
+        if (croix.includes(4)){
+            if (croix.includes(5)){
+                winner = " Bot ";
+                win();
+            }
+        }
+    }
+    if (croix.includes(6)){
+        if (croix.includes(7)){
+            if (croix.includes(8)){
+                winner = " Bot ";
+                win();
+            }
+        }
+    }
+    if (croix.includes(1)){
+        if (croix.includes(4)){
+            if (croix.includes(7)){
+                winner = " Bot ";
+                win();
+            }
+        }
+    }
+    if (croix.includes(2)){
+        if (croix.includes(5)){
+            if (croix.includes(8)){
+                winner = " Bot ";
+                win();
+            }
+        }
+        else if (croix.includes(4)){
+            if (croix.includes(6)){
+                winner = " Bot ";
+                win();
+            }
+        }
+    }
 }
 
 function win(){
@@ -36,7 +125,7 @@ function win(){
     rond = [];
     interdit = [];
     flag = 0;
-    player2();
+    player1();
     alert("Le joueur "+winner+" a gagné");
 }
 
@@ -57,7 +146,13 @@ let rond = [];
 let interdit = [];
 let flag = 0;
 let winner = "";
-let tour = "O"
+let tour = "O";
+let botB = 0;
+
+document.getElementById("bot").addEventListener("click", () =>{
+    botB = 1;
+});
+
 let divCase = document.getElementsByClassName("case");
 for (let i = 0; i<9; i++) {
     divCase[i].style.backgroundImage = "none";
@@ -65,8 +160,11 @@ for (let i = 0; i<9; i++) {
         switch (event.button) {
             case 0:
                 flag = 0;
-                if (interdit.length === 8){
+                if (interdit.length > 8){
                     draw()
+                }
+                if (botB === 1){
+                    setTimeout(bot, 200)
                 }
                 for (let y of interdit) {
                     if (i === y) {
@@ -141,7 +239,7 @@ for (let i = 0; i<9; i++) {
                 break;
             case 2:
                 flag = 0;
-                if (interdit.length === 8){
+                if (interdit.length > 8){
                     draw()
                 }
                 for (let y of interdit) {

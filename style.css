@@ -45,8 +45,9 @@ div{
     border-bottom: none;
 }
 
-#player1{
+#bot{
     margin-right: 10%;
+    margin-left: 10%;
 }
 
 #text{
